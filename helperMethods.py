@@ -18,6 +18,8 @@ def process_user_input(user_input,user_ip_manager):
         command, ip_address_str = parts
         if validate_ip_address(ip_address_str):
             threadingFile.threadHandler(command,user_ip_manager,ip_address_str)
+        else:
+            print("Invalid Command")
     elif parts[0]=="ASK" and len(parts)==1:
         threadingFile.threadHandler(parts[0],user_ip_manager)
     else:

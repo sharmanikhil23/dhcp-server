@@ -2,6 +2,10 @@ import threading
 import dataStructure
 import helperMethods
 
+import threading
+import dataStructure
+import helperMethods
+
 def main():
     user_ip_manager = dataStructure.UserIPAddresses()
     stop_flag = threading.Event()
@@ -17,11 +21,17 @@ def main():
     finally:
         user_ip_manager.release_all_ips()
         stop_flag.set()
-        my_thread.join()
+        try:
+            my_thread.join()
+        except KeyboardInterrupt:
+            pass
+
+
 
 def releaseThread(user_ip_manager, stop_flag):
     user_ip_manager.schedule_clearing()
-    stop_flag.wait()
+    stop_flag.set()  # Set the stop flag to ensure the thread exits
+
 
 if __name__ == "__main__":
     main()
