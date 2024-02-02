@@ -8,7 +8,7 @@ def askThread(user_ip_manager, stop_flag):
     stop_flag.set()  # Set the flag to stop the thread
 
 def renewThread(ip, user_ip_manager, stop_flag):
-    ip1, timestamp1 = user_ip_manager.renew_ip(ip)
+    user_ip_manager.renew_ip(ip)
     stop_flag.set()  # Set the flag to stop the thread
 
 def releaseThread(ip, user_ip_manager, stop_flag):
