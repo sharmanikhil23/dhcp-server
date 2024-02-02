@@ -1,1 +1,1 @@
-To run the code use the command python3 ./main.py
+### To run the code use the command python3 ./main.py
