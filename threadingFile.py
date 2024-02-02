@@ -13,7 +13,6 @@ def renewThread(ip, user_ip_manager, stop_flag):
 
 def releaseThread(ip, user_ip_manager, stop_flag):
     user_ip_manager.delete_ip(ip)
-    print("RELEASED for ", ip)
     stop_flag.set()  # Set the flag to stop the thread
 
 def statusThread(ip, user_ip_manager, stop_flag):

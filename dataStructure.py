@@ -35,10 +35,12 @@ class UserIPAddresses:
         return ip_address, timestamp
 
     def delete_ip(self, ip_address):
-        if ip_address in self.ip_stack:
-            self.ip_stack.remove(ip_address)
-        self.used_ips.discard(ip_address)
-        self._rebuild_heap()
+        if ip_address in self.used_ips:
+            self.used_ips.discard(ip_address)
+            self._rebuild_heap()
+            print("RELEASED for", ip_address)
+        else:
+            print(f"IP {ip_address} is not assigned.")
 
     def check_ip_status(self, ip_address):
         return ip_address in self.used_ips

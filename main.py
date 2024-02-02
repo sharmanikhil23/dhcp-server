@@ -17,9 +17,8 @@ def main():
         except KeyboardInterrupt:
             user_ip_manager.release_all_ips()
             print("\nProgram interrupted. Exiting gracefully.")
-            my_thread.join()
             return;
-        my_thread.join()
+        
     
     
     
